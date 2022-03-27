@@ -11,27 +11,48 @@ function trataErro(erro){
 
 
 
-
-
 function pegarArquivo(caminhodoArquivo){
+
    const encoding ='utf-8';
-
-
-   fs.readFile(caminhodoArquivo,encoding,(erro,texto) =>{
-           
-     if(erro){
-
-       trataErro(erro);
-     }
-
-     console.log(chalk.green(texto))
+   
+   fs.promises
+   .readFile(caminhodoArquivo,encoding)
+   .then((texto) => console.log(texto))
+   .catch((erro) => trataErro(erro))
 
 
 
-   })
 
 
 
 }
 
-pegarArquivo('./texto')
+
+
+
+
+
+
+
+// function pegarArquivo(caminhodoArquivo){
+//    const encoding ='utf-8';
+
+
+//    fs.readFile(caminhodoArquivo,encoding,(erro,texto) =>{
+           
+//      if(erro){
+
+//        trataErro(erro);
+//      }
+
+//      console.log(chalk.green(texto))
+
+
+
+//    })
+
+
+
+// }
+
+pegarArquivo('./texto.md')
