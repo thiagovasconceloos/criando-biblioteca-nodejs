@@ -11,14 +11,21 @@ function trataErro(erro){
 
 
 
-function pegarArquivo(caminhodoArquivo){
+async function pegarArquivo(caminhodoArquivo){
 
+  
+  try{
    const encoding ='utf-8';
    
-   fs.promises
-   .readFile(caminhodoArquivo,encoding)
-   .then((texto) => console.log(texto))
-   .catch((erro) => trataErro(erro))
+   const texto = await fs.promises.readFile(caminhodoArquivo,encoding)
+  console.log(chalk.green(texto))} 
+  catch(erro) {
+
+      trataErro(erro)
+
+  }
+
+
 
 
 
@@ -26,6 +33,31 @@ function pegarArquivo(caminhodoArquivo){
 
 
 }
+
+
+
+
+
+
+
+
+
+
+// function pegarArquivo(caminhodoArquivo){
+
+//    const encoding ='utf-8';
+   
+//    fs.promises
+//    .readFile(caminhodoArquivo,encoding)
+//    .then((texto) => console.log(texto))
+//    .catch((erro) => trataErro(erro))
+
+
+
+
+
+
+// }
 
 
 
