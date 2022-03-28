@@ -3,16 +3,32 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
+  "type":"module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "start": "node -r esm src/index.js",
     "cli": "node cli.js ./arquivos/texto.md"
+  },
+  "jest": {
+    "projects": [
+      "<rootDir>/test.config.js"
+    ]
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "chalk": "5.0.1",
-    "node-fetch": "^3.2.3"
+    "esm": "^3.2.25",
+    "node-fetch": "^3.2.3",
+    "ts-jest": "^27.1.4"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.17.7",
+    "@babel/preset-env": "^7.16.11",
+    "babel-jest": "^27.5.1",
+    "chai": "^4.3.6",
+    "jest": "^27.5.1",
+    "ts-node": "^10.7.0"
   }
 }
